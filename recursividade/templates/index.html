@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            color: #007BFF;
+        }
+        p, label {
+            color: #6C757D;
+        }
+        button {
+            background-color: #28A745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="center">
+    <h1>Calculadora de Fatorial</h1>
+    <input type="number" id="number" min="0">
+    <button id="calculate-btn">Calcular Fatorial</button>
+    <p id="result"></p>
+</div>
+<script>
+    document.getElementById('calculate-btn').addEventListener('click', function() {
+        var xhr = new XMLHttpRequest();
+        var num = document.getElementById('number').value;
+        xhr.open('GET', '/fatorial?num=' + num, true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                document.getElementById('result').textContent = 'O fatorial de ' + num + ' é ' + response.result;
+            }
+        };
+        xhr.send();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+	text-align: center;
+	font-family: Arial, sans-serif;
+}
+.passed {
+	background-color: green;
+	color: white;
+	margin: 1em;
+	padding: 1em;
+}
+.failed {
+	background-color: red;
+	color: white;
+	margin: 1em;
+	padding: 1em;
+}
+.container {
+	display: flex;
+	justify-content: center;
+}
+.left {
+	margin-right: auto;
+}
+.right {
+	margin-left: auto;
+}
+</style>
+</head>
+<body>
+<h1>Resultados da Verificação de Qualidade</h1>
+<div class="container">
+<div class="left">
+<h2>Passou na Verificação de Qualidade</h2>
+<div class="passed">Lote 1, Produto 1: Passou na verificação de qualidade</div>
+<div class="passed">Lote 1, Produto 3: Passou na verificação de qualidade</div>
+<div class="passed">Lote 1, Produto 4: Passou na verificação de qualidade</div>
+<div class="passed">Lote 3, Produto 1: Passou na verificação de qualidade</div>
+<div class="passed">Lote 3, Produto 2: Passou na verificação de qualidade</div>
+<div class="passed">Lote 3, Produto 3: Passou na verificação de qualidade</div>
+<div class="passed">Lote 4, Produto 1: Passou na verificação de qualidade</div>
+<div class="passed">Lote 4, Produto 2: Passou na verificação de qualidade</div>
+<div class="passed">Lote 4, Produto 3: Passou na verificação de qualidade</div>
+<div class="passed">Lote 5, Produto 1: Passou na verificação de qualidade</div>
+<div class="passed">Lote 5, Produto 2: Passou na verificação de qualidade</div>
+</div>
+<div class="right">
+<h2>Falhou na Verificação de Qualidade</h2>
+<div class="failed">Lote 1, Produto 2: Falhou na verificação de qualidade</div>
+<div class="failed">Lote 2, Produto 1: Falhou na verificação de qualidade</div>
+<div class="failed">Lote 2, Produto 2: Falhou na verificação de qualidade</div>
+<div class="failed">Lote 2, Produto 3: Falhou na verificação de qualidade</div>
+<div class="failed">Lote 2, Produto 4: Falhou na verificação de qualidade</div>
+<div class="failed">Lote 3, Produto 4: Falhou na verificação de qualidade</div>
+<div class="failed">Lote 4, Produto 4: Falhou na verificação de qualidade</div>
+<div class="failed">Lote 5, Produto 3: Falhou na verificação de qualidade</div>
+<div class="failed">Lote 5, Produto 4: Falhou na verificação de qualidade</div>
+</div>
+</div>
+<h2>Total de Verificações</h2>
+<p>Passou na Verificação de Qualidade: 11</p>
+<p>Falhou na Verificação de Qualidade: 9</p>
+</body>
+</html>
