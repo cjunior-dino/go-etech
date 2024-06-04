@@ -3,41 +3,63 @@ package main
 import "fmt"
 
 type Node struct {
-	Key   int
-	Left  *Node
-	Right *Node
+	key   int
+	left  *Node
+	right *Node
 }
 
-func (n *Node) Insert(k int) {
-	if n.Key < k {
-		fmt.Println(n.Key)
-		if n.Right == nil {
-			n.Right = &Node{Key: k}
+func (n *Node) Insert(c int) {
+	if n.key < c {
+		if n.left == nil {
+			n.left = &Node{key: c}
 		} else {
-			n.Right.Insert(k)
+			n.left.Insert(c)
 		}
-	} else if n.Key > k {
-		fmt.Println(n.Key)
-		if n.Left == nil {
-			n.Left = &Node{Key: k}
+	} else if n.key > c {
+		if n.right == nil {
+			n.right = &Node{key: c}
 		} else {
-			n.Left.Insert(k)
+			n.right.Insert(c)
 		}
 	}
 }
 
-func printInOrder(n *Node) {
-	if n != nil {
-		fmt.Println(n.Key)
+func printInDorder(i *Node) {
+	if i != nil {
+		printInDorder(i.right)
+		fmt.Println(i.key)
+		printInDorder(i.left)
 	}
 }
 
+func printInOrder(i *Node) {
+	if i != nil {
+		printInOrder(i.left)
+		fmt.Println(i.key)
+		printInOrder(i.right)
+	}
+
+}
 func main() {
-	tree := &Node{Key: 10}
-	tree.Insert(5)
-	tree.Insert(15)
-	tree.Insert(7)
+	tree := &Node{}
+	var x, i int
 
-	printInOrder(tree)
+	for {
+		fmt.Println("Escolha uma opção:")
+		fmt.Println("1- inserir dado:")
+		fmt.Println("2- mostrar em ordem crescente:")
+		fmt.Println("3- mostrar em ordem decrescente:")
+		fmt.Scanln(&x)
+
+		if x == 1 {
+			fmt.Scanln(&i)
+			tree.Insert(i)
+		} else if x == 2 {
+			printInOrder(tree)
+		} else if x == 3 {
+			printInDorder(tree)
+		}
+
+	}
 
 }
